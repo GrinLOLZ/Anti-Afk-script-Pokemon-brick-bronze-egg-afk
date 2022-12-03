@@ -1,0 +1,221 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local start = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local stop = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local TextLabel_3 = Instance.new("TextLabel")
+local UICorner_6 = Instance.new("UICorner")
+local TextLabel_4 = Instance.new("TextLabel")
+local UICorner_7 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(49, 49, 49)
+Frame.Position = UDim2.new(0.316265047, 0, 0.340222567, 0)
+Frame.Size = UDim2.new(0, 253, 0, 360)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(116, 116, 116)
+TextLabel.Position = UDim2.new(0.102766797, 0, 0.0972222239, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.Text = "Brick Bronze auto farm eggs"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+UICorner.Parent = TextLabel
+
+UICorner_2.Parent = Frame
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(116, 116, 116)
+TextLabel_2.Position = UDim2.new(0.102766797, 0, 0.288888901, 0)
+TextLabel_2.Size = UDim2.new(0, 200, 0, 105)
+TextLabel_2.Font = Enum.Font.SourceSansBold
+TextLabel_2.Text = "Warning Script will only farm not open eggs"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+UICorner_3.Parent = TextLabel_2
+
+start.Name = "start"
+start.Parent = Frame
+start.BackgroundColor3 = Color3.fromRGB(72, 147, 63)
+start.Position = UDim2.new(0.102766797, 0, 0.683333337, 0)
+start.Size = UDim2.new(0, 93, 0, 50)
+start.Font = Enum.Font.SourceSansBold
+start.Text = "Start"
+start.TextColor3 = Color3.fromRGB(255, 255, 255)
+start.TextScaled = true
+start.TextSize = 14.000
+start.TextWrapped = true
+
+UICorner_4.Parent = start
+
+stop.Name = "stop"
+stop.Parent = Frame
+stop.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+stop.Position = UDim2.new(0.525691688, 0, 0.683333337, 0)
+stop.Size = UDim2.new(0, 93, 0, 50)
+stop.Font = Enum.Font.SourceSansBold
+stop.Text = "Stop"
+stop.TextColor3 = Color3.fromRGB(255, 255, 255)
+stop.TextScaled = true
+stop.TextSize = 14.000
+stop.TextWrapped = true
+
+UICorner_5.Parent = stop
+
+TextLabel_3.Parent = Frame
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(83, 83, 83)
+TextLabel_3.Size = UDim2.new(0, 253, 0, 26)
+TextLabel_3.Font = Enum.Font.SourceSansBold
+TextLabel_3.Text = "V to close"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+UICorner_6.Parent = TextLabel_3
+
+TextLabel_4.Parent = Frame
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(83, 83, 83)
+TextLabel_4.Position = UDim2.new(-0.00395256933, 0, 0.875, 0)
+TextLabel_4.Size = UDim2.new(0, 254, 0, 45)
+TextLabel_4.Font = Enum.Font.SourceSansBold
+TextLabel_4.Text = "Made by Grin#6787"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+
+UICorner_7.Parent = TextLabel_4
+
+-- Scripts:
+
+local function QYKE_fake_script() -- start.LocalScript 
+	local script = Instance.new('LocalScript', start)
+
+	local player = game.Players.LocalPlayer
+	local character = player.Character or player.CharacterAdded:Wait()
+	
+	
+	
+	local on = true
+	
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		if on == true then
+		repeat
+			print("I am on")
+			wait(2)
+			local part2 = Instance.new("Part", workspace)
+			part2.CanCollide = false
+			part2.Anchored = true
+			part2.Transparency = 1
+			part2:PivotTo(character:WaitForChild("Head"):GetPivot() * CFrame.new(0, 0, 20))
+			part2.Name = "Part1"
+	
+			character:WaitForChild("Humanoid"):MoveTo(part2.Position, part2)
+			until on == false
+			
+	
+		end
+	
+	end)
+	
+	script.Parent.Parent.stop.MouseButton1Click:Connect(function()
+		on = false
+		print("Off")
+	end)
+	script.Parent.MouseButton1Click:Connect(function()
+		on = true
+		print("On")
+	end)
+	
+	
+	
+	
+end
+coroutine.wrap(QYKE_fake_script)()
+local function IDOTWGF_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	
+	local UIS = game:GetService('UserInputService')
+	local frame = script.Parent
+	local dragToggle = nil
+	local dragSpeed = 0.25
+	local dragStart = nil
+	local startPos = nil
+	
+	local function updateInput(input)
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(frame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end
+	
+	frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	
+	UIS.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			if dragToggle then
+				updateInput(input)
+			end
+		end
+	end)
+	
+end
+coroutine.wrap(IDOTWGF_fake_script)()
+local function GAPFNH_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	local Player = game.Players.LocalPlayer
+	local Mouse = Player:GetMouse()
+	local Frame = script.Parent
+	local Keybind = "v"
+	
+	Mouse.KeyDown:Connect(function(key)
+		if key == Keybind then
+			if Frame.Visible == true then
+				Frame.Visible = false
+			else if Frame.Visible == false then
+					Frame.Visible = true
+				end
+			end
+		end
+	end)
+	
+end
+coroutine.wrap(GAPFNH_fake_script)()
