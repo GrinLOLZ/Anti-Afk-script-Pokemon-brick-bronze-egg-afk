@@ -127,15 +127,16 @@ local function QYKE_fake_script() -- start.LocalScript
 		if on == true then
 		repeat
 			print("I am on")
-			wait(2)
 			local part2 = Instance.new("Part", workspace)
 			part2.CanCollide = false
 			part2.Anchored = true
-			part2.Transparency = 1
+			part2.Transparency = 0
 			part2:PivotTo(character:WaitForChild("Head"):GetPivot() * CFrame.new(0, 0, 20))
 			part2.Name = "Part1"
-	
+	        
 			character:WaitForChild("Humanoid"):MoveTo(part2.Position, part2)
+			wait(2)
+			part2:Destroy()
 			until on == false
 			
 	
